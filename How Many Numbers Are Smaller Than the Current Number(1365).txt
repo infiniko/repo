@@ -1,0 +1,19 @@
+//How Many Numbers Are Smaller Than the Current Number(1365)
+
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int> newVec = nums;
+        int n=nums.size();
+        sort(newVec.begin(),newVec.end());
+        map<int,int> mp;
+        for(int i=n-1;i>=0;i--){
+            mp[newVec[i]]=i;
+        }
+        for(int i=0;i<n;i++){
+            nums[i]=mp[nums[i]];
+        }
+
+        return nums;
+    }
+};
