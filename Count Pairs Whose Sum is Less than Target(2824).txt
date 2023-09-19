@@ -1,0 +1,20 @@
+//Count Pairs Whose Sum is Less than Target(2824)
+class Solution {
+public:
+    int countPairs(vector<int>& nums, int target) {
+        int ans = 0;
+        int left=0,right=nums.size()-1;
+        sort(nums.begin(),nums.end());
+        while(left<right){
+            if(nums[left]+nums[right]<target){
+                ans+=(right-left);
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        return ans;
+
+    }
+};
