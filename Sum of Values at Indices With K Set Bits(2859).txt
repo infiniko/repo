@@ -1,0 +1,21 @@
+// Sum of Values at Indices With K Set Bits(2859)
+class Solution {
+public:
+    int sumIndicesWithKSetBits(vector<int>& nums, int k) {
+        
+        int result=0;
+        for(int i=0;i<nums.size();i++){
+
+            int totalBit=0,copy=i;
+
+            while(copy){
+                totalBit+=(copy&1);
+                copy=copy>>1;
+            }
+            if(totalBit==k){
+                result+=nums[i];
+            }
+        }
+        return result;
+    }
+};
